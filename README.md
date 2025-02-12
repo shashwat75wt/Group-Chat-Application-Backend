@@ -74,7 +74,7 @@ The Swagger UI provides an interactive way to explore and test API endpoints.
 |---------|-----------------------|---------------------|
 | POST    | `/users`              | create user         |
 | POST    | `/users/login`        | login the user      |
-| GET     | `/users/getAllUser`   | Update user details |
+| GET     | `/users/get-all-User` | Update user details |
 | GET     | `/users/{:id}`        | get user by id      |
 | DELETE  | `/users/{:id}`        | delete user by id   |
 | PUT     | `/users/{:id}`        | update a user       |
@@ -83,16 +83,16 @@ The Swagger UI provides an interactive way to explore and test API endpoints.
 | POST    | `/users/logout`       | Logut User          |
 
 ### **Group Routes**
-| Method | Endpoint                             | Description            |
-|------|----------------------------------------|------------------------|
-| GET  | `/groups/public`                       | get public groups      |
-| POST | `/groups`                              | Create a new group     |
-| POST | `/groups/group{id}/join`               | join a public group    |
-| POST | `/groups/group{id}/inviteuser/user{id}`| Invite a user in group |
-| POST | `/groups/acceptinvitation/{token}`     | Accept Group invitation|
-| GET  | `/groups/data`                         | get overall data       |
-| GET  | `/groups/groupdata/group{id}`          |get specific group      |
-| PUT  | `/groups/edit-group/group-id`          | edit a group           | 
+| Method | Endpoint                              |  Description           |
+|------|-----------------------------------------|------------------------|
+| GET  | `/groups/public`                        | get public groups      |
+| POST | `/groups`                               | Create a new group     |
+| POST | `/groups/group{id}/join`                | join a public group    |
+| POST | `/groups/group{id}/invite-user/user{id}`| Invite a user in group |
+| POST | `/groups/accepti-nvitation/{token}`     | Accept Group invitation|
+| GET  | `/groups/data`                          |  get overall data      |
+| GET  | `/groups/group-data/group{id}`          |get specific group      |
+| PUT  | `/groups/edit-group/group{id}`          | edit a group           | 
 
 
 ### **Message Routes**
