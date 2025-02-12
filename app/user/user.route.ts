@@ -20,7 +20,7 @@ const publicRoutes = ["/login", "/create-user"];
  * @swagger
  * /users/login:
  *   post:
- *     summary: Login a user
+ *     summary: Login the user
  *     tags: [Users]
  *     description: Authenticate user with email and password.
  *     requestBody:
@@ -76,7 +76,7 @@ router.post(
  *                 example: John Doe
  *               email:
  *                 type: string
- *                 example: john@example.com
+ *                 example: Doe@example.com
  *               password:
  *                 type: string
  *                 example: "securePassword123"
@@ -100,7 +100,7 @@ router.post(
 );
 /**
  * @swagger
- * /users/getAllUser:
+ * /users/get-all-user:
  *   get:
  *     summary: Retrieve all users
  *     tags: [Users]
@@ -113,7 +113,7 @@ router.post(
  *       403:
  *         description: Forbidden
  */
-router.get("/getAllUser", authenticateJWT, userController.getAllUser);
+router.get("/get-all-user", authenticateJWT, userController.getAllUser);
 /**
  * @swagger
  * /users/{id}:
@@ -179,7 +179,7 @@ router.delete(
  * @swagger
  * /users/{id}:
  *   put:
- *     summary: Update a user
+ *     summary: Update the user
  *     tags: [Users]
  *     description: Update user details.
  *     security:
@@ -200,10 +200,10 @@ router.delete(
  *             properties:
  *               name:
  *                 type: string
- *                 example: Jane Doe
+ *                 example: 75 way
  *               email:
  *                 type: string
- *                 example: jane@example.com
+ *                 example: 75way@example.com
  *     responses:
  *       200:
  *         description: User updated successfully
@@ -258,7 +258,7 @@ router.patch(
 );
 /**
  * @swagger
- * /users/refreshToken:
+ * /users/refresh-token:
  *   post:
  *     summary: Refresh authentication token
  *     tags: [Users]
@@ -272,7 +272,7 @@ router.patch(
  *             properties:
  *               refreshToken:
  *                 type: string
- *                 example: "some-refresh-token"
+ *                 example: "refresh-token"
  *     responses:
  *       200:
  *         description: Token refreshed successfully
@@ -280,7 +280,7 @@ router.patch(
  *         description: Unauthorized
  */
 router.post(
-  "/refreshToken",
+  "/refresh-token",
   userValidator.refreshToken,
   catchError,
   userController.refreshToken
@@ -296,7 +296,7 @@ router.post(
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: User logged out successfully
+ *         description: you logged out successfully
  *       401:
  *         description: Unauthorized
  */

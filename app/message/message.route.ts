@@ -11,14 +11,14 @@ const router = Router();
  * @swagger
  * tags:
  *   name: Messages
- *   description: Message System
+ *   description: Messaging System
  */
 
 /**
  * @swagger
  * /messages/send-message:
  *   post:
- *     summary: Send a message
+ *     summary: Send your message
  *     tags: [Messages]
  *     security:
  *       - bearerAuth: []
@@ -31,7 +31,7 @@ const router = Router();
  *             properties:
  *               groupId:
  *                 type: string
- *                 example: "groupId"
+ *                 example: "enter groupId : groupId"
  *               content:
  *                 type: string
  *                 example: "Hello, how are you?"
@@ -40,8 +40,6 @@ const router = Router();
  *         description: Message sent successfully
  *       400:
  *         description: Bad request
- *       401:
- *         description: Unauthorized
  */
 router.post(
   "/send-message",
@@ -67,14 +65,12 @@ router.post(
  *             properties:
  *               groupId:
  *                 type: string
- *                 example: "conv123"
+ *                 example: "virat"
  *     responses:
  *       200:
  *         description: List of messages
  *       400:
  *         description: Bad request
- *       401:
- *         description: Unauthorized
  */
 router.post(
   "/get-all-messages",

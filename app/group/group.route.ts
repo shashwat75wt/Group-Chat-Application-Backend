@@ -20,13 +20,13 @@ const authenticateJWT = passport.authenticate("jwt", { session: false });
  * @swagger
  * /groups/public:
  *   get:
- *     summary: Get public groups
+ *     summary: For Public Group
  *     tags: [Groups]
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Successfully retrieved public groups
+ *         description: Successfully recieved public groups
  */
 router.get("/public", authenticateJWT, groupController.fetchPublicGroups);
 /**
@@ -46,7 +46,7 @@ router.get("/public", authenticateJWT, groupController.fetchPublicGroups);
  *             properties:
  *               name:
  *                 type: string
- *                 example: "Developers Club"
+ *                 example: "Real Coders"
  *               type:
  *                 type: string
  *                 example: "public or private"
@@ -63,7 +63,7 @@ router.post(
 );
 /**
  * @swagger
- * /groups/{groupId}/join:
+ * /groups/{group-id}/join:
  *   post:
  *     summary: Join a public group
  *     tags: [Groups]
@@ -75,13 +75,13 @@ router.post(
  *         required: true
  *         schema:
  *           type: string
- *         description: ID of the group to join
+ *         description: ID of the group for joining
  *     responses:
  *       200:
- *         description: Successfully joined the group
+ *         description: Successfully joined the group {best of luck}
  */
 router.post(
-  "/:groupId/join",
+  "/:group-id/join",
   groupValidator.joinPublicGroup,
   catchError,
   authenticateJWT,
@@ -89,7 +89,7 @@ router.post(
 );
 /**
  * @swagger
- * /groups/{groupId}/inviteuser/{userId}:
+ * /groups/{group-id}/invite-user/{user-id}:
  *   post:
  *     summary: Invite a user to a group
  *     tags: [Groups]
@@ -113,7 +113,7 @@ router.post(
  *         description: Invitation sent successfully
  */
 router.post(
-  "/:groupId/inviteuser/:userId",
+  "/:group-id/invite-user/:user-id",
   groupValidator.createInvitation,
   catchError,
   authenticateJWT,
@@ -123,7 +123,7 @@ router.post(
  * @swagger
  * /groups/accept-invitation/{token}:
  *   post:
- *     summary: Accept a group invitation
+ *     summary: Accept the group invitation
  *     tags: [Groups]
  *     parameters:
  *       - in: path
@@ -133,13 +133,13 @@ router.post(
  *             properties:
  *               email:
  *                 type: string
- *                 example: "email@email.com"
+ *                 example: "email@75way.com"
  *               password:
  *                 type: string
  *                 example: "pasword"
  *     responses:
  *       200:
- *         description: Invitation accepted successfully
+ *         description: Invitation accepted successfully {congrats}
  */
 router.post(
   "/accept-invitation/:token",
@@ -152,20 +152,20 @@ router.post(
  * @swagger
  * /groups/data:
  *   get:
- *     summary: Get overall analytics
+ *     summary: Get overall data
  *     tags: [Groups]
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Successfully retrieved analytics
+ *         description: Successfully recieved data"
  */
 router.get("/data", authenticateJWT, groupController.data);
 /**
  * @swagger
- * /groups/group-data/{groupId}:
+ * /groups/group-data/{group-id}:
  *   get:
- *     summary: Get analytics for a specific group
+ *     summary: Data for a specific group
  *     tags: [Groups]
  *     security:
  *       - bearerAuth: []
@@ -178,10 +178,10 @@ router.get("/data", authenticateJWT, groupController.data);
  *         description: ID of the group
  *     responses:
  *       200:
- *         description: Successfully retrieved group analytics
+ *         description: recieved group analytics
  */
 router.get(
-  "/group-data/:groupId",
+  "/group-data/:group-id",
   groupValidator.groupAnalytics,
   catchError,
   authenticateJWT,
@@ -189,7 +189,7 @@ router.get(
 );
 /**
  * @swagger
- * /groups/edit-group/{groupId}:
+ * /groups/edit-group/{group-id}:
  *   put:
  *     summary: Edit a group
  *     tags: [Groups]
@@ -211,16 +211,16 @@ router.get(
  *             properties:
  *               name:
  *                 type: string
- *                 example: "Updated Group Name"
+ *                 example: "Please Update"
  *               description:
  *                 type: string
- *                 example: "Updated group description."
+ *                 example: "Please Update"
  *     responses:
  *       200:
- *         description: Group updated successfully
+ *         description: success
  */
 router.put(
-  "/edit-group/:groupId",
+  "/edit-group/:group-id",
   groupValidator.editGroup,
   catchError,
   authenticateJWT,
